@@ -17,12 +17,6 @@ pipeline {
       }
     }
 
-    stage('Test') {
-      steps {
-         sh 'npm test'
-      }
-    }
-
     stage('Start') {
         steps {
             sh 'pm2 start ecosystem.config.js'
