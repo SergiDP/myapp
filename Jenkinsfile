@@ -7,7 +7,7 @@ pipeline {
 
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/gustavoapolinario/node-todo-frontend'
+        git 'https://github.com/SergiDP/myapp'
       }
     }
 
@@ -21,6 +21,12 @@ pipeline {
       steps {
          sh 'npm test'
       }
+    }
+
+    stage('Start') {
+        steps {
+            sh 'pm2 start ecosystem.config.js'
+        }
     }
   }
 }
