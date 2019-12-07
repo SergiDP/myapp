@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Deploy') {
           steps {
-            sh '/node_modules/.bin/pm2 start ecosystem.config.js'
+            sh './node_modules/.bin/pm2 start ecosystem.config.js'
           }
         }
   }
