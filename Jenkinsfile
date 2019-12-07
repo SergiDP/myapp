@@ -15,11 +15,11 @@ pipeline {
       steps {
         sh 'npm install'
       }
-    },
+    }
     stage('Deploy') {
           steps {
             sh 'sudo -u sergidelgadopuig pm2 start ecosystem.config.js'
           }
-        },
+        }
   }
 }
