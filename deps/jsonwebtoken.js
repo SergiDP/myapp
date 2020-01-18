@@ -34,6 +34,7 @@ const login = ({jsonwebtoken}) => (req, res) => {
 
     if (username && password) {
         if (username === jsonwebtoken.mockedusername && password === jsonwebtoken.mockedpassword) {
+            console.log('ok');
             let token = jwt.sign({username: username},
                 jsonwebtoken.secret,
                 { expiresIn: '24h' // expires in 24 hours
@@ -46,12 +47,14 @@ const login = ({jsonwebtoken}) => (req, res) => {
                 token: token
             });
         } else {
+            console.log('forbidden 1');
             res.send(403).json({
                 success: false,
                 message: 'Incorrect username or password'
             });
         }
     } else {
+        console.log('forbidden 2');
         res.send(400).json({
             success: false,
             message: 'Authentication failed! Please check the request'
