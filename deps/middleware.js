@@ -1,18 +1,19 @@
 
 
-const middlewareCT = checkFn => async (req, res, next) => {
+const middlewareCT = checkFn => (req, res, next) => {
     let token = req.headers['x-access-token'] || req.headers['authorization']; // Express headers are auto converted to lowercase
 
-    /*middleware.checkToken(token)
+    checkFn(token)
      .then((decoded) => {
      req.decoded = decoded;
      next();
      })
      .catch((err) => {
      res.json(err)
-     })*/
-    req.decoded = await checkFn(token).catch((err) =>  {return res.json(err)});
-    next();
+     next();
+     })
+    //req.decoded = await checkFn(token).catch((err) =>  {return res.json(err)});
+
 }
 
 module.exports = {

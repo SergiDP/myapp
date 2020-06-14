@@ -8,7 +8,7 @@ module.exports = {
     // First application
     {
       name      : 'api',
-      script    : './server.js',
+      script    : './app.js',
       env: {
         NODE_ENV: 'development',
         PORT: '8000'

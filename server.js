@@ -14,7 +14,6 @@ class HandlerGenerator {
 }
 
 // Starting point of the server
-function main () {
   let app = express(); // Export app for other routes to use
   let handlers = new HandlerGenerator();
   const port = process.env.PORT || 8000;
@@ -26,7 +25,7 @@ function main () {
   const dFactory = depsFactory(config);
   app.post('/login', dFactory.login);
   app.get('/', dFactory.middlewareCT(dFactory.checkToken), handlers.index);
-  app.listen(port, () => console.log(`Server is listening on port: ${port}`));
-}
+  //app.listen(port, () => console.log(`Server is listening on port: ${port}`));
 
-main();
+
+module.exports = app;
