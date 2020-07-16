@@ -72,13 +72,17 @@ describe('POST /login', () => {
             .expect(400, done);
     });
 
+
+});
+
+describe('GET /', () => {
     it('success if token Ok', function(done) {
         request(app)
             .get('/')
             .set('Authorization', token)
             .expect(200)
             .end ((err, response) => {
-                expect(response.body.success).to.eq(true);
+                expect(response.body.success).to.be.true;
                 done();
             });
     });
@@ -89,8 +93,8 @@ describe('POST /login', () => {
             .set('Authorization', 'badtoken')
             .expect(200)
             .end ((err, response) => {
-                expect(response.body.success).to.eq(false);
+                expect(response.body.success).to.be.true;
                 done();
+            });
     });
-});
-});
+})
