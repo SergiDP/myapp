@@ -93,7 +93,7 @@ describe('GET /', () => {
             .set('Authorization', 'badtoken')
             .expect(200)
             .end ((err, response) => {
-                expect(response.body.success).to.be.true;
+                expect(response.body.success).to.be.false;
                 done();
             });
     });
