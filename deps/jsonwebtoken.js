@@ -27,7 +27,7 @@ const checkToken = ({jsonwebtoken}) => token => {
     })
 }
 
-const login = ({jsonwebtoken}) => (req, res) => {
+const login = ({mssql}) => (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
     // For the given username fetch user from DB
